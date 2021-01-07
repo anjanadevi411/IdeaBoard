@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pdf</title>
+</head>
+<body>
+    <ul>
+        <h2><center>{{ topic | upper }}</center></h2>
+        <hr>
+        {% for idea in topic.topic.all %}
+        <p><li>{{ idea | capfirst }}</li></p>
+        {% endfor %}
+        <hr>
+    </ul>
+</body>
+</html>
+
+<!-- {{ idea.member_name | capfirst }}-->

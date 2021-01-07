@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content%}
+    {% if ideas  %}
+        <ul class=".mt-4" style="padding:0";><B>Search Results: {{ query | title }}</B></ul>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                      <th scope="col">Idea</th>
+                      <th scope="col">Contributed</th>
+                </tr>
+            </thead>
+            {% for idea in ideas  %}
+                <tbody>
+                    <tr>
+                      <td>{{ idea.idea | capfirst}}</td>
+                      <td>{{ idea.member_name | title}}</td>
+                    </tr>
+                </tbody>
+            {% endfor %}
+        </table>
+    {% else %}
+        <h2>Sorry no results found</h2>
+    {% endif %}
+{% endblock %}
+
+
+
+

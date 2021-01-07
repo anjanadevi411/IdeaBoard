@@ -1,0 +1,7 @@
+.DS_store
+.project
+*.pyc
+db.sqlite3
+secret.py
+dummy.py
+templatetags

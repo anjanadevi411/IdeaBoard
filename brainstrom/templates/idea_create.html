@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container" >
+        <div class="row mt-3">
+            <form action="" method="post"> {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Contribute Ideas </legend>
+                        {{ form | crispy }}
+                </fieldset>
+                <input type="submit" value="Create"/>
+
+            </form>
+        </div>
+    </div>
+{% endblock %}

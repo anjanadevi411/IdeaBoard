@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+    <br>
+    {% for eval in evals %}
+    <a class="h1 list-group list-group-item-info" href="{% url 'eval_detail' eval.pk %}">
+                    {{eval | title}}</a>
+  <div class="row align-items-start">
+    <div class="col">
+      Pros
+        <ul class="list-group ">{% for pros in eval.prosmodel_set.all %}
+                    <li class="list-group-item">
+                        {{pros | title}}
+                    </li>
+                    {% endfor %}
+                </ul>
+    </div>
+    <div class="col">
+      Cons
+        <ul class="list-group ">
+            {% for cons in eval.consmodel_set.all %}
+                    <li class="list-group-item">
+                        {{cons | title}}
+                    </li>
+            {% endfor %}
+        </ul>
+    </div>
+  </div>
+    <br>
+      {% endfor %}
+
+</div>
+
+{% endblock %}

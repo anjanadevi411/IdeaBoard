@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-3">
+    <div class="row">
+        <div class="col text-center mb-3">
+            {% for topic in topics %}
+                <a class="h1 list-group list-group-item-info" href="{% url 'topic_detail' topic.pk %}">
+                    {{topic | title}}</a>
+                <ul class="list-group ">{% for idea in topic.topic.all %}
+                    <li class="list-group-item">
+                        <a href="{% url 'idea_detail' idea.pk %}">{{idea | title}}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            <br>
+    {% endfor %}
+            <br>
+            </div>
+        </div>
+</div>
+
+{% endblock %}
+<!--<br>
+        <a href="{% url 'topic_form' %}">Create another topic through form</a>
+<br>
+        <a href="{% url 'idea_create' %}">Create another idea</a>
+<br>-->
+{% if messages %}
+                {% for message in messages %}
+                    <h3 class="text-info">{{ message }}</h3>
+                {% endfor %}
+            {% endif %}

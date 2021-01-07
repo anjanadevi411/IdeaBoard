@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container">
+        <form method="GET">
+            {{ filter.form | crispy }}
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+            {% block table %}
+                <table class="table">
+                    <tr>
+                        <th>Topic name</th>
+                        <th>Idea</th>
+                        <th>Idea given by</th>
+                    </tr>
+                    {% for idea in filter.qs %}
+                        <tr>
+                            <td>{{ idea.topicname_idea.topicname | title }}</td>
+                            <td>{{idea.idea | title}}</td>
+                            <td>{{ idea.member_name | title }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+        {% endblock %}
+        </div>
+{% endblock %}
+<!--<a href="{% url 'idea_create' %}">Create another idea</a>
+        <br>
+        <a href="{% url 'topic_form' %}">Create another topic</a>-->

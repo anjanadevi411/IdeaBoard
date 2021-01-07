@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+    {% block style %}
+    <style>
+        .back_ground{
+            background-image: url("/static/img/brainstorm-bg.jpg");
+            background-size: cover;
+            height: 100%;
+            background-position: center;
+        }
+
+        .bg_lightgreen{
+        background-color: #e9fa93;
+        }
+    </style>
+    {% endblock %}
+
+    {% block content %}
+    <div class="back_ground">
+    <br>
+    <div class="container justify-content-center bg_lightgreen" style="height: 150px;">
+    <br>
+        <h4>Welcome to Idea Board!</h4>
+        You can use this platform to "BrainStorm" or "Evaluate" ideas.<br>
+        It can easily save the time for having meetings or communications back and forth, by providing an online platform which all can use at the same time and you will have the result for your brainstorm or evaluation in no time ;)
+    </div>
+    <br>
+    <div class="container" >
+        <div class="row align-items-start">
+            <div class="col-md-4 offset-md-1 bg-info text-white" style="height: 300px;">
+                BrainStorm
+                <br><br>
+                <ul><b>Art</b></ul>
+                <ul>
+                    <li>Painting</li>
+                    <li>Sculpture</li>
+                    <li>Music</li>
+                </ul>
+            </div>
+            <div class="col-md-4 offset-md-2 bg-success text-white" style="height: 300px;">
+                Evaluation
+                <br><br>
+                <ul><b>Copenhagen Winter</b></ul>
+                <table class="table">
+                    <tr>
+                        <th class="col row">Pros</th>
+                            <tr>
+                                <td>Board Games</td>
+                                <td>Candle Lights</td>
+                                <td>Christmas</td>
+                            </tr>
+                        <th class="col row">Cons</th>
+                            <tr>
+                                <td>Cold</td>
+                                <td>Wind</td>
+                                <td>Biking</td>
+                            </tr>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container justify-content-center bg_lightgreen" style="height: 150px;">
+    <br>
+        <h4>How to use this platform:</h4>
+        bla bla bla bla bla
+    </div>
+        <br><br>
+    </div>
+
+    {% endblock %}
+

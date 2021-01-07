@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container-fluid" >
+        <div class="row">
+            <div class="col bg-info text-white" >
+                <p class="h1">{{ topic.topicname | title }}</p>
+                <span><a class="btn btn-secondary" href="{% url 'more_ideas' topic.pk %}">Contribute more ideas</a>
+                <a class="btn btn-secondary" href="{% url 'pdf_format' topic.pk %}">Pdf format</a></span>
+                <br><br>
+                <ul><b> Topic created by: {{ topic.author_created | title}}</b></ul>
+                <ul>{% for detail in topic.topic.all %}
+                    <li>{{detail}}</li>
+                {% endfor %}</ul>
+            </div>
+        </div>
+</div>
+{% endblock %}
+<!-- old code
+<ul><h2>Details of {{ topic.topicname | title }} Brainstrom{% for detail in topic.topic.all %} </h2>
+        <li>{{detail}} </li>
+    {% endfor %}</ul>
+    <p>Topic created by: {{ topic.author_created | title}}</p>
+-->

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container-fluid" >
+        <div class="row">
+            <div class="col bg-info text-white" >
+                <p class="h1">{{ eval.question | title }}</p>
+                <span><a class="btn btn-secondary" href="{% url 'more_pros_cons' eval.pk %}">
+                    Contribute more Pros and Cons</a></span>
+                <br><br>
+            </div>
+        </div>
+</div>
+{% endblock %}
+<!--<a class="btn btn-secondary" href="{% url 'pdf_format' topic.pk %}">Pdf format</a></span>
+<ul>{% for pros_cons in eval.topic.all %}
+                    <li>{{detail}}</li>
+                {% endfor %}</ul>-->
