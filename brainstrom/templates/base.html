@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity=
+            "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <title>{% block title %}Idea Board{% endblock %}</title>
     {% block style %}
@@ -46,8 +47,7 @@
                       <div class="dropdown-menu" aria-labelledby="dropdownMenuLinkE">
                           <a class="dropdown-item" href="{% url 'eval_list'  %}">evaluation list</a>
                           <a class="dropdown-item" href="{% url 'eval_form'  %}">Create evaluation Topic</a>
-                          <a class="dropdown-item" href="{% url 'idea_form'  %}">Contribute Pros and Cons</a>
-                          <a class="dropdown-item" href="{% url 'idea_list'  %}">Search Topics</a>
+                          <a class="dropdown-item" href="{% url 'search_eval'  %}">Search Eval Topics</a>
                       </div>
                 </li>
                 <!--<li class="nav-item">
@@ -56,8 +56,8 @@
 
             </ul>
           </div>
-              <!--<nav class="navbar navbar-light bg-light">
-              <form class="form-inline" action="{% url 'search' %}" method="GET">
+             <!-- <nav class="navbar navbar-light bg-light">
+              <form class="form-inline" action="{% url 'search_eval' %}" method="GET">
                 <input name="q" class="form-control mr-sm-2" type="text" placeholder="Search topics" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="search">Search</button>
               </form>

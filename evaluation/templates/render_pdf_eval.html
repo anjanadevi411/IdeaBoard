@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pdf</title>
+</head>
+<body>
+<h1><center>{{ evaluation | title }}</center></h1>
+    <hr><hr>
+  <div>
+    <div>
+      <h2>Pros</h2>
+        <ul class="list-group ">{% for pros in evaluation.prosmodel_set.all %}
+                    <li class="list-group-item">
+                        {{pros | title}}
+                    </li>
+                    {% endfor %}
+                </ul>
+    </div>
+    <div>
+      <h2>Cons</h2>
+        <ul class="list-group ">
+            {% for cons in evaluation.consmodel_set.all %}
+                    <li class="list-group-item">
+                        {{cons | title}}
+                    </li>
+            {% endfor %}
+        </ul>
+    </div>
+  </div>
+    <br>
+</div>
+</body>
+</html>

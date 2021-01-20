@@ -55,6 +55,16 @@ class TopicListView(ListView):
     template_name = 'topic_list1.html'
     context_object_name = 'topics'
     ordering = ['topicname']
+    paginate_by = 2
+
+#testing
+#this is the generic class 'topic list' view
+class TopicListViewNew(ListView):
+    model = TopicModel
+    template_name = 'topic_list.html'
+    context_object_name = 'topics'
+    ordering = ['topicname']
+    #paginate_by = 2
 
 #this is the generic class 'topic detail' view
 class TopicDetailView(DetailView):
@@ -189,6 +199,24 @@ def more_ideas_formset(request,topicname_id):
     formset = IdeaFormSet(queryset=IdeaModel.objects.filter(topicname_idea__id=topicname.id))
     context = {'formset': formset, 'topicname': topicname}
     return render(request,'more_ideas.html',context)
+
+#test_sticky_notes
+def more_ideas(request,topicname_id):
+    topicname = TopicModel.objects.get(pk=topicname_id)
+    IdeaFormSet = modelformset_factory(IdeaModel, fields=('idea',),formset=BaseIdeaFormset)
+    if request.method == 'POST':
+        formset = IdeaFormSet(request.POST, queryset=IdeaModel.objects.filter(topicname_idea__id=topicname.id))
+        if formset.is_valid():
+            instances = formset.save(commit=False)
+            for instance in instances:
+                instance.topicname_idea_id = topicname.id
+                instance.save()
+        else:
+            messages.info(request, 'Idea with the same content already exits')
+            return HttpResponseRedirect(reverse('create_form', args=(topicname.id,)))
+    formset = IdeaFormSet(queryset=IdeaModel.objects.filter(topicname_idea__id=topicname.id))
+    context = {'formset': formset, 'topicname': topicname}
+    return render(request,'create_form.html',context)
 
 
 def topic_idea_render_pdf(request,*args,**kwargs):
