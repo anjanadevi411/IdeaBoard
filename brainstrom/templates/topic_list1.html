@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% if messages %}
+    {% for message in messages %}
+        <h3 class="text-info">{{ message }}</h3>
+    {% endfor %}
+{% endif %}
 <div class="container mt-3">
     <div class="row">
         <div class="col text-center mb-3">
@@ -11,13 +16,29 @@
                     <li class="list-group-item">
                         <a href="{% url 'idea_detail' idea.pk %}">{{idea | title}}</a>
                     </li>
-                    {% endfor %}
-                </ul>
+                    {% endfor %}</ul>
             <br>
-    {% endfor %}
+            {% endfor %}
             <br>
             </div>
         </div>
+</div>
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
+            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+        {% endif %}
+
+        <span class="current">
+            <a class="btn btn-info mb-4" href="#">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</a>
+        </span>
+
+        {% if page_obj.has_next %}
+            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+        {% endif %}
+    </span>
 </div>
 
 {% endblock %}
@@ -26,8 +47,3 @@
 <br>
         <a href="{% url 'idea_create' %}">Create another idea</a>
 <br>-->
-{% if messages %}
-                {% for message in messages %}
-                    <h3 class="text-info">{{ message }}</h3>
-                {% endfor %}
-            {% endif %}

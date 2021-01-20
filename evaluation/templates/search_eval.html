@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content%}
+    <br>
+    <div class="input-group container justify-content-center">
+        <form class="form-inline" action="{% url 'search_eval' %}" method="GET">
+            <input name="q" class="form-control mr-sm-2" type="text" placeholder="Evaluation Topic's" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="search">Search</button>
+        </form>
+    </div>
+
+<div class="container">
+    {% if pros or cons  %}
+        <h4><B>Search Results: {{ eval_name | title }}</B></h4>
+            <div class="row align-items-start">
+                <div class="col">
+                Pros
+                    <ul class="list-group ">
+                        {% for pro in pros  %}
+                            <li class="list-group-item">
+                                {{ pro.pros | capfirst}}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="col">
+                Cons
+                    <ul class="list-group ">
+                        {% for con in cons  %}
+                            <li class="list-group-item">
+                               {{ con.cons | capfirst}}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+    {% else %}
+            <h2>Sorry no results found</h2>
+    {% endif %}
+</div>
+{% endblock %}
+
+
+
+
+
+
+

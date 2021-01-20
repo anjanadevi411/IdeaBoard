@@ -39,6 +39,9 @@
     </div>
   </div>
 </div>
- <a class="btn btn-secondary" href="{% url 'eval_list' %}" role="button">Go to Evaluation's</a>
+<br>
+<br>
+<a class="btn btn-secondary" href="{% url 'eval_list' %}" role="button">Go to Evaluation's</a>
+<a class="btn btn-secondary" href="{% url 'pdf_format_eval' eval_name.pk %}">Pdf format</a></span>
 
 {% endblock %}
