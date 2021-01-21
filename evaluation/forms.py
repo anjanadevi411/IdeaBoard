@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import BaseModelFormSet
-from .models import EvaluationQModel,ProsModel
+from .models import EvaluationQModel
 from django.core.exceptions import ValidationError
 
 class EvaluationQForm(forms.ModelForm):

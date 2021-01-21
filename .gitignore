@@ -7,7 +7,7 @@ dummy.py
 templatetags
 more_pros.html
 prosmodel_list.html
-topic_list.html
-create_form.html
-style.css
 IdeaBoard/
+style.css
+create_form.html
+topic_list.html

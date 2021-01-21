@@ -39,6 +39,7 @@ class EvalDetailView(DetailView):
 def search_eval(request):
     query = request.GET.get('q')
     template = 'search_eval.html'
+    start_flag = 0
     if query:
         query_pros = ProsModel.objects.filter(evaluation__question__contains=query)
         query_cons = ConsModel.objects.filter(evaluation__question__contains=query)
@@ -46,7 +47,11 @@ def search_eval(request):
             eval_name = EvaluationQModel.objects.get(question__icontains=query)
             context = {'pros':query_pros,'cons':query_cons,'eval_name':eval_name}
             return render(request, template, context)
-    return render(request,template)
+        else:
+            start_flag=1
+            return render(request, template, {'start_flag': start_flag})
+
+    return render(request,template,{'start_flag':start_flag})
 
 
 def more_pros_cons(request,question_id):
