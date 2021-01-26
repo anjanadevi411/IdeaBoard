@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static '/style_new.css' %}">
+{% endblock %}
+{% block content %}
+<div>
+    {% for topic in topics %}
+        <ul class="ulonly ulli unorderedlist ">
+            <li class="ulli unorderedlist" >
+                    <a class="unorderedanchorlist " href="{% url 'topic_detail' topic.pk %}">{{topic | title}}
+                        <ul>
+                            {% for idea in topic.topic.all %}
+                            <li>
+                                {{idea | title}}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </a>
+                <br>
+            </li>
+        </ul>
+    {% endfor %}
+
+</div>
+
+{% endblock %}

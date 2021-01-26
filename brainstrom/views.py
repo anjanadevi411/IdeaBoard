@@ -2,10 +2,8 @@ from django.shortcuts import render,redirect,HttpResponseRedirect,reverse,get_ob
 from django.views.generic import CreateView,ListView,DetailView
 from .models import TopicModel,IdeaModel
 from .forms import TopicForm,IdeaForm,BaseIdeaFormset
-from django.urls import reverse_lazy
 from django.forms import modelformset_factory
 from .filters import IdeaFilter
-import enchant
 from django.http import HttpResponse
 from django.template.loader import get_template
 from xhtml2pdf import pisa
@@ -105,6 +103,18 @@ class IdeaListView(ListView):
         context['filter'] = IdeaFilter(self.request.GET,queryset=self.get_queryset())
         return context
 
+#this is the generic class 'idea list' view
+class IdeaListViewNew(ListView):
+    model = IdeaModel
+    template_name = 'idealist_new.html'
+    context_object_name = 'ideas'
+    ordering = ['idea']
+
+    # this is the method for filtering/search the topics which are there in the database
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['filter'] = IdeaFilter(self.request.GET, queryset=self.get_queryset())
+        return context
 
 #this is the generic class 'idea detail' view
 class IdeaDetailView(DetailView):
@@ -241,7 +251,12 @@ def topic_idea_render_pdf(request,*args,**kwargs):
         return HttpResponse('We had some errors <pre>' + html + '</pre>')
     return response
 
-
+'''def like(request, idea_id):
+    like = LikeModel.objects.get_or_create(idea_id=idea_id)
+    if not like:
+        # the user already liked this picture before
+    else:
+        # oll korrekt'''
 
 
 

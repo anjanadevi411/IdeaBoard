@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static '/style_idea.css' %}">
+{% endblock %}
+{% block content %}
+<div class="container">
+    <form method="GET">
+        {{ filter.form | crispy }}
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+    {% for idea in filter.qs %}
+        <ul class="ulonly ulli unorderedlist ">
+            <li class="ulli unorderedlist" >
+                <a class="unorderedanchorlist " href="#">
+                    <ul >
+                        <li>{{idea.idea | title}}</li>
+                    </ul>
+                </a>
+            </li>
+        </ul>
+    {% endfor %}
+</div>
+
+{% endblock %}

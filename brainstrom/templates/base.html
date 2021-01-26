@@ -17,18 +17,18 @@
 
 <body>
     {% block base_body%}
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-          <span><img src="{% static 'img/brain.png' %}" alt="brain image" style="height: 40px;"class="img-responsive"></span>
+    <nav class="navbar navbar-expand-lg navbar-primary" style="background-color: #3498DB;">
+          <span><img src="{% static 'img/brain_head.jpeg' %}" alt="brain image" style="height: 40px;"class="img-responsive"></span>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a  class="nav-link" href="{% url 'home'  %}">Home</a>
+                    <a  class="nav-link" style="color: black;" href="{% url 'home'  %}">Home</a>
                 </li>
                 <li class="nav-item dropdown show">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown">
+                    <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="dropdownMenuLink" data-toggle="dropdown">
                         Brain Storms
                       </a>
 
@@ -40,12 +40,12 @@
                       </div>
                 </li>
                 <li class="nav-item dropdown show">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuLinkE" data-toggle="dropdown">
+                    <a class="nav-link dropdown-toggle" style="color: black;" href="#" id="dropdownMenuLinkE" data-toggle="dropdown">
                         Evaluations
                       </a>
 
                       <div class="dropdown-menu" aria-labelledby="dropdownMenuLinkE">
-                          <a class="dropdown-item" href="{% url 'eval_list'  %}">evaluation list</a>
+                          <a class="dropdown-item" href="{% url 'eval_list'  %}">Evaluation list</a>
                           <a class="dropdown-item" href="{% url 'eval_form'  %}">Create evaluation Topic</a>
                           <a class="dropdown-item" href="{% url 'search_eval'  %}">Search Eval Topics</a>
                       </div>

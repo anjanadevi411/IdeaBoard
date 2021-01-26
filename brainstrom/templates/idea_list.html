@@ -12,13 +12,11 @@
                     <tr>
                         <th>Topic name</th>
                         <th>Idea</th>
-                        <th>Idea given by</th>
                     </tr>
                     {% for idea in filter.qs %}
                         <tr>
                             <td>{{ idea.topicname_idea.topicname | title }}</td>
                             <td>{{idea.idea | title}}</td>
-                            <td>{{ idea.member_name | title }}</td>
                         </tr>
                     {% endfor %}
                 </table>
@@ -27,4 +25,6 @@
 {% endblock %}
 <!--<a href="{% url 'idea_create' %}">Create another idea</a>
         <br>
-        <a href="{% url 'topic_form' %}">Create another topic</a>-->
+        <a href="{% url 'topic_form' %}">Create another topic</a>
+        <th>Idea given by</th>
+        <td>{{ idea.member_name | title }}</td>-->

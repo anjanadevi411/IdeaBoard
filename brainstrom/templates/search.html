@@ -13,7 +13,6 @@
                 <tbody>
                     <tr>
                       <td>{{ idea.idea | capfirst}}</td>
-                      <td>{{ idea.member_name | title}}</td>
                     </tr>
                 </tbody>
             {% endfor %}
@@ -22,6 +21,7 @@
         <h2>Sorry no results found</h2>
     {% endif %}
 {% endblock %}
+<!--<td>{{ idea.member_name | title}}</td>-->
 
 
 

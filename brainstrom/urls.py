@@ -2,7 +2,8 @@ from django.urls import path
 from django.views.generic import TemplateView
 from .views import (TopicListView,TopicDetailView,create_topic_form,
                     IdeaListView,IdeaDetailView,search,create_idea_form,
-                    more_ideas_formset,topic_idea_render_pdf,TopicListViewNew,more_ideas)
+                    more_ideas_formset,topic_idea_render_pdf,TopicListViewNew,more_ideas,
+                    IdeaListViewNew)
 
 urlpatterns = [
     path('topiclist/',TopicListView.as_view(),name='topic_list'),
@@ -18,4 +19,5 @@ urlpatterns = [
     path('meaningfull/',TemplateView.as_view(template_name='meaningfull.html'),name='enter_meaning'),
     path('pdf_format/<int:pk>',topic_idea_render_pdf,name='pdf_format'),
     path('topiclist_new/',TopicListViewNew.as_view(),name='topiclist_new'),
+    path('idealist_new/',IdeaListViewNew.as_view(),name='idealist_new'),
 ]

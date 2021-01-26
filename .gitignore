@@ -8,6 +8,5 @@ templatetags
 more_pros.html
 prosmodel_list.html
 IdeaBoard/
-style.css
 create_form.html
-topic_list.html
+style.css

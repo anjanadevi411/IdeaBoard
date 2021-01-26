@@ -10,7 +10,7 @@ class TopicForm(forms.ModelForm):
 
     class Meta:
         model = TopicModel
-        fields = ['topicname','author_created']
+        fields = ['topicname']
 
     def clean(self):
         super(TopicForm, self).clean()
@@ -24,7 +24,7 @@ class TopicForm(forms.ModelForm):
 class IdeaForm(forms.ModelForm):
     class Meta:
         model = IdeaModel
-        fields = ['topicname_idea','idea','member_name']
+        fields = ['topicname_idea','idea']
 
     def clean(self):
         super(IdeaForm, self).clean()

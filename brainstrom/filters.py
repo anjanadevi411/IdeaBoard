@@ -8,5 +8,5 @@ class IdeaFilter(django_filters.FilterSet):
         #fields = ['topicname_idea','idea']
         fields = {
             'topicname_idea':['exact'],
-            'idea': ['icontains'],
+            #'idea': ['icontains'],
         }
